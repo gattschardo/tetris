@@ -1,3 +1,5 @@
 ./tetris
 mkdir -p graphs
-gnuplot plot > graphs/`date +%Y.%m.%d-%H:%M`.png
+DATE=`date +%Y.%m.%d-%H:%M`
+gnuplot plot > graphs/g-$DATE.png
+cp log graphs/log-$DATE

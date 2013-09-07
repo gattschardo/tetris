@@ -1,54 +1,8 @@
 #include <time.h>
 #include <cairo.h>
 #include <stdlib.h>
-#include <gtk/gtk.h>
 
-#define TICK 0
-#define G_WIDTH 10
-#define G_HEIGHT 20
-
-enum shape_t {
-	SHAPE_BOX = 0x0660, SHAPE_LOW = 0x0622,
-	SHAPE_MID = 0x0262, SHAPE_TOP = 0x2260,
-	SHAPE_LEF = 0x2640, SHAPE_RIG = 0x4620,
-	SHAPE_BAR = 0x2222,
-};
-
-struct game_state {
-	int grid[G_WIDTH][G_HEIGHT];
-	GtkWidget *surface;
-	enum shape_t shape;
-	int lastdrop;
-	int delay;
-	int lines;
-	int rot;
-	int x;
-	int y;
-	FILE *log;
-};
-
-typedef int (*mod_f)(int *s, int v);
-
-static int value(struct game_state *gs)
-{
-	int i, j, v = 0;
-	for (i = 0; i < G_WIDTH; i++) {
-		int l = 1, f = 1;
-		for (j = G_HEIGHT - 1; j > -1; j--) {
-			if (gs->grid[i][j] == 1) {
-				l = 1;
-				v += f;
-			} else {
-				if (l == 1) {
-					f *= 2;
-				}
-				l = 0;
-			}
-		}
-	}
-
-	return v;
-}
+#include "tetris.h"
 
 static void end_cb(struct game_state *gs)
 {

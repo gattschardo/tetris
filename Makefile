@@ -5,5 +5,7 @@ targets:=tetris
 
 all: ${targets}
 
+tetris: tetris.c val.o
+
 clean:
 	${RM} ${targets}
