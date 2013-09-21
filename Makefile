@@ -1,11 +1,15 @@
-CFLAGS+=-ansi `pkg-config --cflags gtk+-3.0`
-LDLIBS+=`pkg-config --libs   gtk+-3.0`
+CFLAGS  := -Wall -ansi
 
-targets:=tetris
+targets :=
+objs    :=
+
+all:
+
+variants := gtk3 sdl2
+include $(patsubst %,%.mk,$(variants))
 
 all: ${targets}
 
-tetris: tetris.c val.o
 
 clean:
-	${RM} ${targets}
+	${RM} ${targets} ${objs}

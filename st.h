@@ -1,8 +1,12 @@
-#include <gtk/gtk.h>
+#pragma once
+
+#include <SDL2/SDL.h>
 
 #define TICK 0
 #define G_WIDTH 10
 #define G_HEIGHT 20
+#define W_WIDTH 800
+#define W_HEIGHT 600
 
 enum shape_t {
 	SHAPE_BOX = 0x0660, SHAPE_LOW = 0x0622,
@@ -13,7 +17,7 @@ enum shape_t {
 
 struct game_state {
 	int grid[G_WIDTH][G_HEIGHT];
-	GtkWidget *surface;
+	SDL_Renderer *surface;
 	enum shape_t shape;
 	int lastdrop;
 	int delay;
@@ -21,7 +25,6 @@ struct game_state {
 	int rot;
 	int x;
 	int y;
-	FILE *log;
 };
 
 typedef int (*mod_f)(int *s, int v);

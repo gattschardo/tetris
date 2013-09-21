@@ -2,7 +2,8 @@
 #include <cairo.h>
 #include <stdlib.h>
 
-#include "tetris.h"
+#include "gt.h"
+#include "val.h"
 
 static void end_cb(struct game_state *gs)
 {
@@ -181,7 +182,9 @@ static void drop_cb(struct game_state *gs)
 static void tick_cb(struct game_state *gs)
 {
 	if (clock() - gs->lastdrop >= gs->delay) {
+#if TICK
 		drop_cb(gs);
+#endif
 		gs->lastdrop = clock();
 	}
 
@@ -308,9 +311,7 @@ static GtkWidget *init_window(int argc, char **argv, int delay)
 	gs->log = fopen("log", "w");
 	init_game_state(gs);
 
-#if TICK
 	g_timeout_add(10, (GSourceFunc) tick_cb, (gpointer) gs);
-#endif
 
 	g_signal_connect(surface, "draw", G_CALLBACK(draw_cb), gs);
 	g_signal_connect(window, "key-press-event", G_CALLBACK(key_cb), gs);

@@ -4,9 +4,9 @@ Tetris
 The game itself should need no explanation. To compile, you need GTK 3.0
 (including development headers) installed. For graphing you need gnuplot.
 
-Some important settings can be controlled in the source file tetris.c itself,
-TICK enables oder disables automatic block falling, G_WIDTH and G_HEIGHT control
-the size of the game grid (in blocks).
+Some important settings can be controlled in the main header file tetris.h,
+TICK enables oder disables automatic block falling, G_WIDTH and G_HEIGHT
+control the size of the game grid (in blocks).
 
 The plotting script creates to graphs, the "valuation" of a the grid situation
 (lower is better) and the number of lines consumed (after each move).
