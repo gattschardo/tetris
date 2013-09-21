@@ -1,7 +1,7 @@
 CFLAGS  := -Wall -ansi
 
 targets :=
-objs    :=
+objs    := val.o tetris.o
 
 all:
 

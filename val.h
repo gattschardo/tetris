@@ -1,5 +1,5 @@
 #pragma once
 
-#include "gt.h"
+#include "tetris.h"
 
 int value(struct game_state *gs);
