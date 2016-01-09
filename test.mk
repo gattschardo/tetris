@@ -1,3 +1,6 @@
-targets += tetris_test
+targets += tt
 
-tetris_test: tetris_test.c tetris.o val.o
+tt: tt.c tetris.o val.o
+
+test: tt
+	./tt

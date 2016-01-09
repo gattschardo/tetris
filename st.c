@@ -102,6 +102,7 @@ static struct game_state *init_window(int delay)
 	struct game_state *gs = malloc(sizeof(struct game_state));
 	gs->surface = r;
 	gs->delay = delay;
+	gs->log = stdout;
 	init_game_state(gs);
 
 	/*
