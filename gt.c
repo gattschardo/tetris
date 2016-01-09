@@ -82,9 +82,13 @@ static void key_cb(GtkWidget *window, GdkEventKey *event, struct game_state *gs)
 	{
 	case GDK_KEY_r: init_game_state(gs); break;
 	case GDK_KEY_Q: end_cb(gs); break;
+	case GDK_KEY_j:
 	case GDK_KEY_s: drop_block(gs); break;
+	case GDK_KEY_h:
 	case GDK_KEY_a: move_x(gs, -1); break;
+	case GDK_KEY_l:
 	case GDK_KEY_d: move_x(gs, 1); break;
+	case GDK_KEY_k:
 	case GDK_KEY_w: rot_block(gs); break;
 	}
 

@@ -1,4 +1,4 @@
-CFLAGS  := -Wall -ansi
+CFLAGS  := -Wall -ansi -g
 
 targets :=
 objs    := val.o tetris.o

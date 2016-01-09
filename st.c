@@ -82,9 +82,13 @@ static void key_cb(SDL_Keycode k, int shift, struct game_state *gs)
 	{
 	case SDLK_r: init_game_state(gs); break;
 	case SDLK_q: if (shift) end_cb(gs); break;
+	case SDLK_j:
 	case SDLK_s: drop_block(gs); break;
+	case SDLK_h:
 	case SDLK_a: move_x(gs, -1); break;
+	case SDLK_l:
 	case SDLK_d: move_x(gs, 1); break;
+	case SDLK_k:
 	case SDLK_w: rot_block(gs); break;
 	}
 
