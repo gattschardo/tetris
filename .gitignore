@@ -1,7 +1,10 @@
 /gt
 /st
+/s1
+/s1.bc
 /graphs
 /tt
 /log
 /*.o
+/index.*
 /*.swp
